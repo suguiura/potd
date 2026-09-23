@@ -28,6 +28,20 @@ cannot run on GNOME Shell 44 or earlier.
 
 ## Installation
 
+### From a release bundle
+
+Install and enable a prebuilt bundle (for example
+`potd@suguiura.dev.shell-extension.zip`):
+
+```sh
+gnome-extensions install potd@suguiura.dev.shell-extension.zip
+gnome-extensions enable potd@suguiura.dev
+```
+
+Add `--force` to overwrite an already installed copy when reinstalling.
+
+### From source
+
 Copy the extension into your user extension directory:
 
 ```sh
@@ -42,6 +56,28 @@ gnome-extensions enable potd@suguiura.dev
 
 If the extension does not appear, log out and back in so GNOME Shell rescans
 the extension directory.
+
+## Packaging
+
+Create a distributable bundle from the project directory:
+
+```sh
+gnome-extensions pack . --extra-source=potd
+```
+
+This writes `potd@suguiura.dev.shell-extension.zip` next to the sources. Use
+`-o`/`--out-dir` to write it somewhere else:
+
+```sh
+gnome-extensions pack . --extra-source=potd -o /tmp
+```
+
+Add `--force` (or `-f`) to overwrite an existing bundle.
+
+`gnome-extensions pack` only bundles the standard top-level files
+(`metadata.json`, `extension.js`, `stylesheet.css`, `prefs.js`). Any
+subdirectory, such as `potd/`, must be passed explicitly with `--extra-source`;
+otherwise the bundle is missing those modules and the extension fails to load.
 
 ## Usage
 
