@@ -1,0 +1,7 @@
+{
+  "name": "Picture of the Day",
+  "description": "A minimal Picture of the Day GNOME Shell extension",
+  "uuid": "potd@suguiura.dev",
+  "shell-version": ["45", "46", "47", "48", "49"],
+  "version": 0.1
+}
